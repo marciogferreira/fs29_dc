@@ -1,14 +1,19 @@
+const ProductModel = require('../models/ProductModel')
 const UserModel = require('../models/UserModel')
 class UserController {
 
     async findAll(request, response) {
-        const lista = await UserModel.findAll()
+        const lista = await UserModel.findAll({
+            attributes: ['id', 'name', 'login']
+        })
         return response.json(lista)
     }
 
     async findId(request, response) {
         const id = request.params.id
-        const dado = await UserModel.findByPk(id)
+        const dado = await UserModel.findByPk(id, {
+            attributes: ['id', 'name', 'login']
+        })
         return response.json(dado)
     }
 
