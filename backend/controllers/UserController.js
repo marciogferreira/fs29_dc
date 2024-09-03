@@ -3,6 +3,7 @@ const UserModel = require('../models/UserModel')
 class UserController {
 
     async findAll(request, response) {
+        
         const lista = await UserModel.findAll({
             attributes: ['id', 'name', 'login']
         })
