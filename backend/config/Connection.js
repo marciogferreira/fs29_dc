@@ -16,7 +16,7 @@ const Connection = new Sequelize({
     host: 'localhost',
     port:  '5432',
     username: 'postgres',
-    password: '123456',
+    password: '1234',
     database: 'fs29'
 })
 

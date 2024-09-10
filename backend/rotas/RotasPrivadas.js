@@ -7,14 +7,13 @@ const RotasPrivadas = express.Router()
 require('dotenv').config()
 // Minhas Rotas Privadas, acessadas apenas com Token
 RotasPrivadas.use((request, response, next) => {
-    const token = request.headers.token || null;
-    console.log(token)
-    try {
-        const decode = jwt.verify(token, process.env.APP_KEY)
-        console.log(decode);
-    } catch(e) {
-        return response.status(403).send("Nao autorizado " + e.message)
-    }
+    // const token = request.headers.token || null;
+    // try {
+    //     const decode = jwt.verify(token, process.env.APP_KEY)
+    //     console.log(decode);
+    // } catch(e) {
+    //     return response.status(403).send("Nao autorizado " + e.message)
+    // }
     next();
 })
 RotasPrivadas.use(UsuariosRotas)
