@@ -1,9 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const RotasPrivadas = require('./rotas/RotasPrivadas');
 const RotasPublicas = require('./rotas/RotasPublicas');
 const app = express();
 // HABILITA O RECEBIMENTO DE DADOS PELO BODY
 app.use(express.json())
+app.use(cors(
+    {
+        // origin: ['url]
+    }
+))
 
 app.get('/', (request, response) => {
     return response.status(200).send("Hello Backend")

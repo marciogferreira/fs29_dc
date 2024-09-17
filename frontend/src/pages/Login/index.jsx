@@ -1,13 +1,10 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../App";
 import Swal from 'sweetalert2'
+import Api from "../../config/Api";
 
 function Login() {
-
     const { setLogado } = useContext(AuthContext);
-    // const[login, setLogin] = useState('');
-    // const[senha, setSenha] = useState('');
-
     const [dataForm, setDataForm] = useState({
         login: '',
         senha: ''
@@ -16,30 +13,26 @@ function Login() {
     function mudarCampos(evento) {
         const nome = evento.target.name;
         const valor = evento.target.value;
-
         // ESTRUTURACAO E DESESTRUTURACAO DE OBJETOS.
         setDataForm({...dataForm, [nome]: valor});
         // setDataForm()
     }
 
-    function logar() {
+    async function logar() {
         const { login, senha } = dataForm
-        // CAPTURA LOGIN E SENHA DIGITADOS
-        // ENVIA PARA O BACKEND PARA CONSULTAR NO BANCO OS DADOS.
-        if(login === 'admin@admin.com.br' && senha === '123123') {
-            Swal.fire({
-                icon: "success",
-                title: "Sucesso",
-                text: "Usuario Logado com Sucesso!",
-            });
-            setLogado(true)
-        } else {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Login ou senha incorreto!",
-            });
-        }
+
+        const response = await Api.post('login', {
+            login: login,
+            password: senha
+        })
+
+        localStorage.setItem('token@dc', response.data.token)
+        Swal.fire({
+            icon: "success",
+            title: "Sucesso",
+            text: response.data.message,
+        });
+        setLogado(true)
     }
 
 

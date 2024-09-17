@@ -7,7 +7,8 @@ export const AuthContext = createContext();
 
 function App() {
 
-  const[logado, setLogado] = useState(false);
+  const check = localStorage.getItem('token@dc') ? true : false;
+  const[logado, setLogado] = useState(check);
   return ( 
     <AuthContext.Provider value={{ logado, setLogado }}>
       {logado ? <AppRoutes /> : <Login />}
