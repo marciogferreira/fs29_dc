@@ -16,7 +16,6 @@ function AppRoutes () {
                 <Route path="/categorias" element={<Categorias />} />
                 <Route path="/categorias/novo" element={<CategoriasForm />} />
                 <Route path="/categorias/editar/:id" element={<CategoriasForm />} />
-                <Route path="/categorias/editar/:nome/:sobrenome" element={<CategoriasForm />} />
 
                 <Route path="*" element={<NotFound />} />
             </Routes>

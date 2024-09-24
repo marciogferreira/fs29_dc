@@ -1,5 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2';
+import Messages from '../components/Messages';
+
 const Api = axios.create({
     baseURL: 'http://localhost:3000/'
 })
@@ -7,12 +9,7 @@ const Api = axios.create({
 Api.interceptors.response.use((response) => {
     return response;
 }, (error) => {
-    console.log(error)
-    Swal.fire({
-        icon: "error",
-        title: "Oops..",
-        text: error.response.data,
-    });
+    Messages.error(error.response.data);
     return Promise.reject(error);
 });
 

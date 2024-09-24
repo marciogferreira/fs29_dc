@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Menu() {
 
-    const { setLogado } = useContext(AuthContext);
+    const { logout } = useContext(AuthContext);
 
     return (
         <>
@@ -26,7 +26,7 @@ function Menu() {
                         <Link className="nav-link" to="/categorias">Categorias</Link>
                     </li>
                     <li className="nav-item">
-                        <a onClick={() => setLogado(false)}  className="nav-link" aria-disabled="true">Sair</a>
+                        <a href="" onClick={() => logout()}  className="nav-link" aria-disabled="true">Sair</a>
                     </li>
                 </ul>
                 </div>

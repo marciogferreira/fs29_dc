@@ -1,11 +1,12 @@
+import Layout from "../../layouts/Layout";
 import Menu from "../../layouts/Menu";
 
 function Produtos () {
     return (
-        <>
-            <Menu />
+        <Layout>
+        
             <h1>Produtos</h1>
-        </>
+        </Layout>
     )
 }
 

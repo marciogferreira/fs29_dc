@@ -9,8 +9,14 @@ function App() {
 
   const check = localStorage.getItem('token@dc') ? true : false;
   const[logado, setLogado] = useState(check);
+
+  function logout() {
+    localStorage.removeItem('token@dc')
+    setLogado(false)
+  }
+
   return ( 
-    <AuthContext.Provider value={{ logado, setLogado }}>
+    <AuthContext.Provider value={{ logado, setLogado, logout }}>
       {logado ? <AppRoutes /> : <Login />}
     </AuthContext.Provider>
   )

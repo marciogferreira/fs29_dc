@@ -2,6 +2,7 @@ const express = require('express')
 const UsuariosRotas = require('./UsuariosRotas')
 const PostsRotas = require('./PostsRotas')
 const ProductRotas = require('./ProductRotas')
+const CategoryRotas = require('./CategoryRotas')
 const jwt = require('jsonwebtoken');
 const RotasPrivadas = express.Router()
 require('dotenv').config()
@@ -19,5 +20,6 @@ RotasPrivadas.use((request, response, next) => {
 RotasPrivadas.use(UsuariosRotas)
 RotasPrivadas.use(PostsRotas)
 RotasPrivadas.use(ProductRotas)
+RotasPrivadas.use(CategoryRotas)
 
 module.exports = RotasPrivadas

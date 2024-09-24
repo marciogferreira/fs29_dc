@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Menu from '../../layouts/Menu';
 import { Row, Col, Card } from 'react-bootstrap'
+import Layout from '../../layouts/Layout';
+import Grafico from '../../components/Grafico';
 function Painel() {
     const TitleH1 = styled.h4`
       color: #444;
@@ -8,14 +10,16 @@ function Painel() {
       padding: 12px;
     `
     return (
-      <div>
-        <Menu />
+      <Layout>
+        
         <TitleH1>Dashboard</TitleH1>
         <Row className='mt-4'>
           <Col md={6}>
             <Card>
               <Card.Header>Gráfico de Barras</Card.Header>
-              <Card.Body />
+              <Card.Body>
+                <Grafico />
+              </Card.Body>
             </Card>
           </Col>
         
@@ -26,7 +30,7 @@ function Painel() {
             </Card>
           </Col>  
         </Row>
-      </div>
+      </Layout>
     )
 }
 
