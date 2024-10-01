@@ -26,6 +26,9 @@ function Menu() {
                         <Link className="nav-link" to="/categorias">Categorias</Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to="/usuarios">Usuários</Link>
+                    </li>
+                    <li className="nav-item">
                         <a href="" onClick={() => logout()}  className="nav-link" aria-disabled="true">Sair</a>
                     </li>
                 </ul>
